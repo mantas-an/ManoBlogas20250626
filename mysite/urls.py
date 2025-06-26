@@ -15,8 +15,18 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+from django.contrib.auth import views as auth_views
+from myapp.views import ListOfPosts, DetailPostView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('posts/', ListOfPosts.as_view(), name='list_of_posts'),
+
+    # Note the parentheses after as_view and the added name parameter
+    #This allows you to reference this URL in templates using {% url 'list_of_posts' %}
+    path('posts/<int:pk>/', DetailPostView.as_view(), name='detail_post_view'),
+    path('login/', auth_views.LoginView.as_view(), name='login'),
+    path('logout', auth_views.LoginView.as_view(), name='logout')
+
 ]
