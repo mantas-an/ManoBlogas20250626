@@ -1,16 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Posts</title>
-    {% for x in posts %}
-    <h1><a href="{% url 'detail_post_view' x.pk %}">{{ x.title }}</a></h1>
-    <p>{{ x.content }}</p>
-    <p>{{ x.created_at }}</p>
+{% extends 'base.html' %}
 
-    {% endfor %}
-</head>
-<body>
 
-</body>
-</html>
+
+{% block content %}
+
+<h1>Posts</h1>
+<ul>
+{% for x in posts %}
+<li><a href="{% url 'detail_post_view' x.pk %}">{{ x.title }}</a></li>
+<p>{{ x.content }}</p>
+<p>{{ x.author.first_name }} {{ x.author.last_name }}</p>
+<p>{{ x.created_at }}</p>
+
+{% endfor %}
+</ul>
+{% endblock %}
