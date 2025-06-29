@@ -1,5 +1,7 @@
 from django.contrib.auth.models import User
 from django.db import models
+from django.urls import reverse
+
 
 # Create your models here.
 
@@ -12,3 +14,7 @@ class Post(models.Model):
 
     def __str__(self):
         return f'{self.title} - "{self.author}"'
+
+    def get_absolute_url(self):
+        #return reverse('detail_post_view', args=(str(self.id)) ) jeigu norime grazinti i pati posta
+        return reverse('list_of_posts') #jei norime tiesiog grazinti i pagrindini puslapi! veikia! ir paprasciau
