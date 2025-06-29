@@ -3,9 +3,9 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.mixins import PermissionRequiredMixin, LoginRequiredMixin
 from django.shortcuts import render, redirect
 from django.template.context_processors import request
-from django.views.generic import ListView, DetailView, CreateView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView
 from myapp.models import Post
-from .forms import PostForm
+from .forms import PostForm, EditForm
 
 
 # Create your views here.
@@ -29,7 +29,11 @@ class AddPosts(CreateView):
     context_object_name = 'add_posts'
     #fields = ['title', 'content', 'author'] <-- Nebenaudosim, nes turime form.py clase ir perduodam info i sia klase su form_clas=PostForm #arba galime naudoti fields=  '__all__'
 
-
+class UpdatePost(UpdateView):
+    model = Post
+    form_class = EditForm
+    template_name = 'update_post.html'
+    #fields = ['title', 'content']
 
 
 

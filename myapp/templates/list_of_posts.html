@@ -9,7 +9,7 @@
 {% for x in posts %}
 <li><a href="{% url 'detail_post_view' x.pk %}">{{ x.title }}</a></li>
 <p>{{ x.content }}</p>
-<p>{{ x.author.first_name }} {{ x.author.last_name }}</p>
+<p>{{ x.author.first_name }} {{ x.author.last_name }} - <small><a href="{% url 'update_post' x.pk %}">Edit</a></small> </p>
 <p>{{ x.created_at }}</p>
 
 {% endfor %}
