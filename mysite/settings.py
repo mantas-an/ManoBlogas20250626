@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'members',
     'myapp',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -130,3 +131,6 @@ STATICFILES_DIRS = [
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # settings.py
+
+LOGIN_REDIRECT_URL = 'list_of_posts'
+LOGOUT_REDIRECT_URL = 'login'
