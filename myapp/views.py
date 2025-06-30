@@ -3,7 +3,8 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.mixins import PermissionRequiredMixin, LoginRequiredMixin
 from django.shortcuts import render, redirect
 from django.template.context_processors import request
-from django.views.generic import ListView, DetailView, CreateView, UpdateView
+from django.urls import reverse_lazy
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from myapp.models import Post
 from .forms import PostForm, EditForm
 
@@ -14,6 +15,7 @@ class ListOfPosts(ListView):
     model = Post
     template_name = 'list_of_posts.html'
     context_object_name = 'posts'
+    ordering = ['-created_at'] #si vieta leidzia pateikti postus nuo naujausio is virsaus, defaultu naujausi apacioje, veliau pridesim pagal data
 
 
 class DetailPostView(DetailView):
@@ -36,4 +38,8 @@ class UpdatePost(UpdateView):
     #fields = ['title', 'content']
 
 
+class DeletePost(DeleteView):
+    model = Post
+    template_name = 'delete_post.html'
+    success_url = reverse_lazy('list_of_posts')
 
