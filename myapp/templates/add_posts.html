@@ -5,7 +5,7 @@ Add blog post
 {% endblock %}
 
 {% block content %}
-
+{% if user.is_authenticated%}
 <h1>Add blog post</h1>
 <br>
 <br>
@@ -17,7 +17,11 @@ Add blog post
         <a href="{% url 'list_of_posts' %}" class ="btn btn-secondary">Back</a>
     </form>
 </div>
+{% else %}
 
+<p>Prisijunkite!!!</p>
+
+{% endif %}
 
 
 

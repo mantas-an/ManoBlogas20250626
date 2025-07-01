@@ -1,17 +1,22 @@
 {% extends 'base.html' %}
 
-
-
 {% block content %}
-
 <h1>Posts</h1>
 <ul>
-{% for x in posts %}
-<li><a href="{% url 'detail_post_view' x.pk %}">{{ x.title }}</a></li>
-<p>{{ x.content }}</p>
-<p>Author: <br>{{ x.author.first_name }} {{ x.author.last_name }} - <small><a href="{% url 'update_post' x.pk %}">Edit</a></small> or <small><a href="{% url 'delete_post' x.pk %}">Delete</a></small> </p>
-<p>Created: {{ x.created_at }}</p>
-
-{% endfor %}
+    {% for x in posts %}
+    <li>
+        <a href="{% url 'detail_post_view' x.pk %}">{{ x.title }}</a>
+<!--        <p>{{ x.content|slice:":100" }}</p>  -->
+            <p>{{ x.content|truncatewords:50 }}</p>
+        <p>
+            Author: {{ x.author.first_name }} {{ x.author.last_name }}
+            {% if user.is_authenticated %} -
+            <small><a href="{% url 'update_post' x.pk %}">Edit</a></small> or
+            <small><a href="{% url 'delete_post' x.pk %}">Delete</a></small>
+            {% endif %}
+        </p>
+        <p>Created: {{ x.created_at }}</p>
+    </li>
+    {% endfor %}
 </ul>
 {% endblock %}

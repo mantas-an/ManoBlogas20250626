@@ -5,7 +5,7 @@ Delete post
 {% endblock %}
 
 {% block content %}
-
+{% if user.is_authenticated %}
 <h1>Delete blog post</h1>
 <br>
 <br>
@@ -20,7 +20,11 @@ Delete post
         <a href="{% url 'list_of_posts' %}" class ="btn btn-secondary">Back</a>
     </form>
 </div>
+{% else %}
 
+<p>prisijunkite!!!</p>
+
+{% endif %}
 
 
 

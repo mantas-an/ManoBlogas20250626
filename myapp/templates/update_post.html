@@ -5,7 +5,7 @@ Update post
 {% endblock %}
 
 {% block content %}
-
+{% if user.is_authenticated %}
 <h1>Edit blog post</h1>
 <br>
 <br>
@@ -17,8 +17,11 @@ Update post
         <a href="{% url 'list_of_posts' %}" class ="btn btn-secondary">Back</a>
     </form>
 </div>
+{% else %}
 
+<p>Neturite teises redaguoti,prisijunkite!!</p>
 
+{% endif%}
 
 
 

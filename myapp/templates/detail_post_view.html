@@ -11,7 +11,9 @@
 <p>{{ post.author.first_name }} {{ post.author.last_name }}
     <br/>
     <br/>
+    {% if user.is_authenticated %}
     <small><a href="{% url 'update_post' post.pk %}">Edit</a></small> or <small><a href="{% url 'delete_post' post.pk %}">Delete</a></small></p>
+    {% endif %}
 
 
 <br/>
