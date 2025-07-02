@@ -7,12 +7,15 @@
 
 
 <h1>{{ post.title }}</h1>
-<p>{{ post.content }}</p>
-<p>{{ post.author.first_name }} {{ post.author.last_name }}
+<p>{{ post.content | linebreaks }}</p>
+<br/>
+<p>Author: {{ post.author }}
     <br/>
     <br/>
     {% if user.is_authenticated %}
-    <small><a href="{% url 'update_post' post.pk %}">Edit</a></small> or <small><a href="{% url 'delete_post' post.pk %}">Delete</a></small></p>
+        {% if user.id == post.author.id %}
+            <small><a href="{% url 'update_post' post.pk %}">Edit</a></small> or <small><a href="{% url 'delete_post' post.pk %}">Delete</a></small></p>
+        {% endif %}
     {% endif %}
 
 

@@ -31,6 +31,10 @@ class AddPosts(CreateView):
     context_object_name = 'add_posts'
     #fields = ['title', 'content', 'author'] <-- Nebenaudosim, nes turime form.py clase ir perduodam info i sia klase su form_clas=PostForm #arba galime naudoti fields=  '__all__'
 
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form) # si methoda sukureme, nes pacioj pradzioje buvom leide pasirinkti posto autoriu kai kuriame psota, si methoda sukurus, taip pat reikejo koreguoti ir formas kurias naudojame siame view
+
 class UpdatePost(UpdateView):
     model = Post
     form_class = EditForm
