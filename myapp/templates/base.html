@@ -25,6 +25,9 @@
                 {% if user.is_authenticated %}
                     <div class="navbar-nav">
                         <a class="nav-link active" href="{% url 'add_posts' %}">Add post</a>
+
+                        <a class="nav-link active" href="{% url 'edit_profile' %}">Edit profile</a>
+
                         <form action="{% url 'logout' %}" method="post" class="nav-item">
                             {% csrf_token %}
                             <button type="submit" class="nav-link active" style="

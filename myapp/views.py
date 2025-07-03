@@ -1,3 +1,4 @@
+import bleach
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.mixins import PermissionRequiredMixin, LoginRequiredMixin
@@ -16,6 +17,8 @@ class ListOfPosts(ListView):
     template_name = 'list_of_posts.html'
     context_object_name = 'posts'
     ordering = ['-created_at'] #si vieta leidzia pateikti postus nuo naujausio is virsaus, defaultu naujausi apacioje, veliau pridesim pagal data
+
+
 
 
 class DetailPostView(DetailView):
