@@ -27,7 +27,7 @@ class Post(models.Model):
 class Profile(models.Model):
     user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
     bio = models.TextField(max_length=1000)
-    profile_pic = models.ImageField(null=True, blank=True, upload_to='images/profile/', default="default.jpg")
+    profile_pic = models.ImageField(null=True, blank=True, upload_to='images/profile/')
     website_url = models.CharField(max_length=255, null=True, blank=True)
     facebook_url = models.CharField(max_length=255, null=True, blank=True)
     instagram_url = models.CharField(max_length=255, null=True, blank=True)
