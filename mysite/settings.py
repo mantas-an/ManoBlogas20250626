@@ -9,8 +9,10 @@ https://docs.djangoproject.com/en/5.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
-
+import os
 from pathlib import Path
+
+from ckeditor_demo.settings import MEDIA_URL, MEDIA_ROOT
 
 #from django.conf.global_settings import LOGOUT_REDIRECT_URL
 
@@ -125,9 +127,16 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 STATIC_URL = 'static/'  # Must end with slash, no app name
+
+
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+
+MEDIA_URL = 'media/'
+
 STATICFILES_DIRS = [
     BASE_DIR / "myapp/static",  # Points to your existing folder
 ]
+
 
 
 # Default primary key field type
