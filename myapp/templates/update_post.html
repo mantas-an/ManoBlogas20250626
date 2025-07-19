@@ -10,10 +10,13 @@ Update post
 <br>
 <br>
 <div class = "form-group">
-    <form method="POST">
+    <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.as_p }}
+
+
         <button class ="btn btn-secondary">Update & save</button>
+
         <a href="{% url 'list_of_posts' %}" class ="btn btn-secondary">Back</a>
     </form>
 </div>
