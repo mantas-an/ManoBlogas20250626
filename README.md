@@ -4,9 +4,9 @@
 
 ## 🖼️ Screenshots  
 <div align="center">
-  <img src="static/images/Screenshot 2025-07-19 184204.png" width="45%" alt="Login Page">
-  <img src="static/images/Screenshot 2025-07-19 184312.png" width="45%" alt="Homepage">
-  <img src="static/images/Screenshot 2025-07-19 184338.png" width="45%" alt="Post Detail View">
+  <img src="static/myapp/images/Screenshot 2025-07-19 184204.png" width="45%" alt="Login Page">
+  <img src="static/myapp/images/Screenshot 2025-07-19 184312.png" width="45%" alt="Homepage">
+  <img src="static/myapp/images/Screenshot 2025-07-19 184338.png" width="45%" alt="Post Detail View">
 </div>
 
 ## 🛠️ Technologies Used  
